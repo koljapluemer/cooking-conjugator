@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://cr7e2kx4w01vy"]
+[gd_scene load_steps=4 format=3 uid="uid://cr7e2kx4w01vy"]
+
+[ext_resource type="Theme" uid="uid://cv5x5k0xj01xc" path="res://themes/FlatUI/kenneyUI-green.tres" id="1_5gsd1"]
+[ext_resource type="Texture2D" uid="uid://dbk767d1efuay" path="res://assets/woman.png" id="2_04rxb"]
+[ext_resource type="Texture2D" uid="uid://mfkchl8myevb" path="res://assets/man-wearing-turban.png" id="3_ddkvx"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,6 +11,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5gsd1")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45098, 0.803922, 0.294118, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -16,16 +31,164 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+theme_override_constants/separation = 0
 
 [node name="Customers" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
 
-[node name="Anna" type="Panel" parent="VBoxContainer/Customers"]
+[node name="Spacer" type="Control" parent="VBoxContainer/Customers"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Customers/Anna"]
+[node name="Customer" type="Panel" parent="VBoxContainer/Customers"]
+layout_mode = 2
+theme = ExtResource("1_5gsd1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Customers/Customer"]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 40.0
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Customers/Customer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="VBoxContainer/Customers/Customer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_04rxb")
+expand_mode = 3
+
+[node name="Label" type="Button" parent="VBoxContainer/Customers/Customer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_5gsd1")
+text = "you (f) are eating"
+
+[node name="Customer" type="Panel" parent="VBoxContainer/Customers/Customer"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "I will run."
+offset_top = 56.0
+offset_bottom = 56.0
+theme = ExtResource("1_5gsd1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Customers/Customer/Customer"]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 40.0
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Customers/Customer/Customer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="VBoxContainer/Customers/Customer/Customer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_ddkvx")
+expand_mode = 3
+
+[node name="Label" type="Button" parent="VBoxContainer/Customers/Customer/Customer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_5gsd1")
+disabled = true
+text = "I walked."
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Workspace" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Exercise" type="Panel" parent="VBoxContainer/Workspace"]
+layout_mode = 2
+theme = ExtResource("1_5gsd1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Workspace/Exercise"]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 40.0
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Workspace/Exercise/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Workspace/Exercise/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_5gsd1")
+text = "1. SG, Past, مـِشي"
+
+[node name="Letters" type="HBoxContainer" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="l5" type="Button" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer/Letters"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="l4" type="Button" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer/Letters"]
+layout_mode = 2
+text = "ي"
+
+[node name="l3" type="Button" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer/Letters"]
+layout_mode = 2
+text = "ش"
+
+[node name="l2" type="Button" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer/Letters"]
+layout_mode = 2
+text = "م"
+
+[node name="l1" type="Button" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer/Letters"]
+layout_mode = 2
+disabled = true
+text = "أنا"
+
+[node name="Portrait" type="TextureRect" parent="VBoxContainer/Workspace/Exercise/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_ddkvx")
+expand_mode = 3
+
+[node name="Belts" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/Belts"]
+layout_mode = 2
+
+[node name="Letters" type="HBoxContainer" parent="VBoxContainer/Belts"]
+layout_mode = 2
+
+[node name="l4" type="Button" parent="VBoxContainer/Belts/Letters"]
+layout_mode = 2
+text = "ي"
+
+[node name="l2" type="Button" parent="VBoxContainer/Belts/Letters"]
+layout_mode = 2
+text = "ت"
+
+[node name="l3" type="Button" parent="VBoxContainer/Belts/Letters"]
+layout_mode = 2
+text = "ي"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Belts"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="Words" type="HBoxContainer" parent="VBoxContainer/Belts"]
+layout_mode = 2
+
+[node name="l4" type="Button" parent="VBoxContainer/Belts/Words"]
+layout_mode = 2
+text = " عا َز"
+
+[node name="l2" type="Button" parent="VBoxContainer/Belts/Words"]
+layout_mode = 2
+text = " عا َش"
+
+[node name="l3" type="Button" parent="VBoxContainer/Belts/Words"]
+layout_mode = 2
+text = " سا َعـِد"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Belts"]
+layout_mode = 2

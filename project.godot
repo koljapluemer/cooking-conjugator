@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=390
 window/size/viewport_height=840
 
+[gui]
+
+theme/custom="res://themes/FlatUI/kenneyUI-green.tres"
+
 [rendering]
 
 renderer/rendering_method="mobile"
