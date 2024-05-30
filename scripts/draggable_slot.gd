@@ -1,7 +1,7 @@
-class_name DragSlot extends TextureRect
+class_name DragSlot extends Control
 
-const BTN_LABEL = preload("res://scenes/btnLabel.tscn")
-const SLOT_PANEL = preload("res://scenes/slotPanel.tscn")
+@export var BTN_LABEL: Control
+@export var SLOT_PANEL: Control
 
 var original_value = "X"
 var btn_label
@@ -10,10 +10,7 @@ var btn_panel
 signal drag_finished
 
 func _init() -> void:
-	btn_label = BTN_LABEL.instantiate()
-	add_child(btn_label)
-	btn_panel = SLOT_PANEL.instantiate()
-	add_child(btn_panel)
+	pass
 
 func set_values(text, parent, slot_type):
 	if slot_type == SLOT_TYPE.FILL:
