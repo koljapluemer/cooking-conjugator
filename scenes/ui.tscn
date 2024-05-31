@@ -124,12 +124,10 @@ text = "1. SG, Past, مـِشي"
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="l5" type="Button" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer/Letters" node_paths=PackedStringArray("BTN_LABEL", "SLOT_PANEL")]
+[node name="l5" type="Button" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer/Letters"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 script = ExtResource("4_4nmrv")
-BTN_LABEL = NodePath(".")
-SLOT_PANEL = NodePath(".")
 
 [node name="l4" type="Button" parent="VBoxContainer/Workspace/Exercise/HBoxContainer/VBoxContainer/Letters"]
 layout_mode = 2
@@ -164,12 +162,10 @@ layout_mode = 2
 [node name="Letters" type="HBoxContainer" parent="VBoxContainer/Belts"]
 layout_mode = 2
 
-[node name="l4" type="Button" parent="VBoxContainer/Belts/Letters" node_paths=PackedStringArray("BTN_LABEL", "SLOT_PANEL")]
+[node name="l4" type="Button" parent="VBoxContainer/Belts/Letters"]
 layout_mode = 2
 text = "ي"
 script = ExtResource("5_34g6n")
-BTN_LABEL = NodePath(".")
-SLOT_PANEL = NodePath(".")
 
 [node name="l2" type="Button" parent="VBoxContainer/Belts/Letters"]
 layout_mode = 2

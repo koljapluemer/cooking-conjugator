@@ -1,35 +1,32 @@
-class_name DragSlot extends Control
-
-@export var BTN_LABEL: Control
-@export var SLOT_PANEL: Control
+class_name DragSlot extends Button
 
 var original_value = "X"
-var btn_label
-var btn_panel
 
 signal drag_finished
 
 func _init() -> void:
+	set_values("A", SLOT_TYPE.FILL)
 	pass
 
-func set_values(text, parent, slot_type):
+func set_values(text_in,  slot_type):
+	print("setting values")
 	if slot_type == SLOT_TYPE.FILL:
-		btn_panel.color = Color.CADET_BLUE
+		modulate = Color.CADET_BLUE
 	if slot_type == SLOT_TYPE.REPLACE:
-		btn_panel.color = Color.DARK_SLATE_GRAY
+		modulate = Color.DARK_SLATE_GRAY
 	else:
-		btn_panel.color = Color.DARK_SLATE_BLUE		
-	original_value = text	
-	btn_label.text = text		
+		modulate = Color.DARK_SLATE_BLUE		
+	original_value = text_in	
+	text = text_in		
 
 func reset_text():
-	btn_label.text = original_value
+	text = original_value
 
 func _can_drop_data(at_position, data):
 	# check if data is string
 	return typeof(data) == TYPE_STRING
 	
 func _drop_data(at_position, data):
-	btn_label.text = data
+	text = data
 	drag_finished.emit()
 

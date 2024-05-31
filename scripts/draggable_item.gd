@@ -1,34 +1,35 @@
-class_name DragItem extends Control
-var btn_label
+class_name DragItem extends Button
 
-@export var BTN_LABEL: Control
-@export var SLOT_PANEL: Control
+#@export var BTN_LABEL: Control
+#@export var SLOT_PANEL: Control
 
 var original_value
 
 func _init():
+	set_values("U")
 	pass
 
-func set_values(text):
-	btn_label.text = text	
-	original_value = text
+func set_values(text_in):
+	text = text_in
+	original_value = text_in
 
 func _get_drag_data(at_position):
-	var preview_label = Label.new()
-	preview_label.text = btn_label.text
+	#var preview_label = Label.new()
+	#preview_label.text = btn_label.text
 	
-	var preview = Control.new()
-	preview.add_child(preview_label)
+	var preview = duplicate()
 	
 	set_drag_preview(preview)
-	btn_label.text = ""
+	#btn_label.text = ""
+	visible = false	
 	
-	return preview_label.text
+	return original_value
 	
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_DRAG_END and not get_viewport().gui_is_drag_successful():
+		print("resetting...")
 		# drag failed, show label again
-		reset_text()
+		reset()
 	
-func reset_text():
-	btn_label.text = original_value
+func reset():
+	visible = true
