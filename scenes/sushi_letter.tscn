@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/sushi_letter.gd" id="1_73lbo"]
 
-[node name="Letter" type="Button"]
-text = "ي"
+[node name="Letter" type="CenterContainer"]
 script = ExtResource("1_73lbo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2

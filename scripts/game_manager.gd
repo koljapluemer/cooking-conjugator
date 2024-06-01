@@ -8,7 +8,8 @@ const SUSHI_WORD = preload("res://scenes/sushi_word.tscn")
 @onready var sushi_words: HBoxContainer = $VBoxContainer/Belts/SushiWords
 
 const SUSHI_LETTER = preload("res://scenes/sushi_letter.tscn")
-@onready var sushi_letters: HBoxContainer = $VBoxContainer/Belts/SushiLetters
+#@onready var sushi_letters: HBoxContainer = $VBoxContainer/Belts/SushiLetters
+@onready var sushi_letters: Node2D = $VBoxContainer/Belts/SushiLetters
 
 const ORDER_OFFERED = preload("res://scenes/order_offered.tscn")
 @onready var orders_offered_ui: VBoxContainer = $VBoxContainer/OrdersOffered
@@ -19,6 +20,8 @@ const ORDER_TAKEN = preload("res://scenes/order_taken.tscn")
 var orders_taken_list = []
 var order_finished_list = []
 
+var letter_pool = []
+@onready var sushi_words_timer: Timer = $SushiWordsTimer
 
 func _ready() -> void:
 	var raw_exercise_list = load_json_file(EXERCISES_PATH)
@@ -74,8 +77,14 @@ func add_sushi_word(verb: Verb) -> void:
 
 func add_sushi_letter(letter: String = "A") -> void:
 	var sushi_letter = SUSHI_LETTER.instantiate()
-	sushi_letter.text = letter
 	sushi_letters.add_child(sushi_letter)
+	sushi_letter.label.text = letter
+
+
+func add_random_sushi_letter_from_pool() -> void:
+	if letter_pool.size() > 0:
+		var random_letter = letter_pool[randi() % letter_pool.size()]
+		add_sushi_letter(random_letter)
 
 
 func generate_random_order() -> void:
@@ -94,7 +103,7 @@ func _on_order_matched_with_fitting_verb(order):
 func move_order_to_workspace(order) -> void:
 	# handle missing letters
 	for removed_letter in order.parent_exercise.removed_letters:
-		add_sushi_letter(removed_letter)
+		letter_pool.append(removed_letter)
 	
 	orders_offered_list.erase(order)
 	orders_offered_ui.remove_child(order)
@@ -109,3 +118,8 @@ func _on_order_solved(order) -> void:
 	orders_taken_list.erase(order)
 	order.queue_free()
 	generate_random_order()
+
+
+func _on_sushi_words_timer_timeout() -> void:
+	print("hey a second is over")
+	add_random_sushi_letter_from_pool()	
