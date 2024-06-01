@@ -7,3 +7,5 @@
 
 - do something about forms that are already correct...
 - the "might" form is just broken, how about ignore
+- "you (m) say" also broken
+- as is "i am loving"

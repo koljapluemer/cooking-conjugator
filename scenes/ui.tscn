@@ -53,23 +53,23 @@ size_flags_stretch_ratio = 2.0
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/Belts"]
-layout_mode = 2
-
 [node name="SushiLetters" type="Node2D" parent="VBoxContainer/Belts"]
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Belts"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
+[node name="SushiWords" type="Node2D" parent="VBoxContainer/Belts"]
+position = Vector2(0, 76)
 
-[node name="SushiWords" type="HBoxContainer" parent="VBoxContainer/Belts"]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Belts"]
-layout_mode = 2
-
-[node name="SushiWordsTimer" type="Timer" parent="."]
-wait_time = 3.0
+[node name="SushiLetterTimer" type="Timer" parent="."]
+wait_time = 2.5
 autostart = true
 
+[node name="SushiWordsTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="OrderTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="SushiLetterTimer" to="." method="_on_sushi_letter_timer_timeout"]
 [connection signal="timeout" from="SushiWordsTimer" to="." method="_on_sushi_words_timer_timeout"]
+[connection signal="timeout" from="OrderTimer" to="." method="_on_order_timer_timeout"]
