@@ -24,13 +24,13 @@ func set_exercise(exercise: Exercise) -> void:
 	if exercise.eg_script_only_intro.length() > 0:
 		var intro = exercise.eg_script_only_intro
 		var intro_label = CHAR.instantiate()
+		chars_ui.add_child(intro_label)		
 		intro_label.set_values(intro, SLOT_TYPE.IMMUTABLE)
-		chars_ui.add_child(intro_label)
 	
 	for i in range(exercise.exercise_template.size()):
 		var index = exercise.exercise_template.size() - i - 1
-		print("i is", i, "index is", index)
 		var char = CHAR.instantiate()	
+		chars_ui.add_child(char)		
 		var text_val = exercise.exercise_template[index][0]
 		if text_val == "_":
 			char.set_values("",  SLOT_TYPE.FILL, exercise.eg_script_chars[i])
@@ -38,14 +38,15 @@ func set_exercise(exercise: Exercise) -> void:
 			char.set_values(exercise.exercise_initial[i][0], SLOT_TYPE.REPLACE, exercise.eg_script_chars[i])
 		else: 
 			char.set_values(exercise.exercise_template[index][0], SLOT_TYPE.IMMUTABLE)
-			
-		chars_ui.add_child(char)
+
 		chars.append(char)
 		
-	
-		
-		
-		
-		
+#func _can_drop_data(at_position, data):
+	#print("received offer for parent")
+	#return true
+		#
+		#
+		#
+		#
 		
 		

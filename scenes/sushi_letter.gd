@@ -1,5 +1,4 @@
 extends Button
-var verb: Verb
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,7 +12,6 @@ func _get_drag_data(at_position):
 	var preview = duplicate()
 	set_drag_preview(preview)
 	visible = false	
-	
 	return text
 	
 func _notification(what: int) -> void:

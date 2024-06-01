@@ -1,35 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://44i0hovxvhgg"]
 
-[sub_resource type="GDScript" id="GDScript_r1bna"]
-script/source = "extends Label
+[ext_resource type="Script" path="res://scenes/char.gd" id="1_jhuv4"]
 
-var original_value
-var correct_solution
-signal drag_finished
-
-func set_values(text_in, slot_type, solution = null):
-	print(\"setting values\")
-	print(theme_type_variation)
-	if slot_type == SLOT_TYPE.FILL:
-		theme_type_variation = \"LabelBlue\"
-	if slot_type == SLOT_TYPE.REPLACE:
-		theme_type_variation = \"LabelYellow\"
-	original_value = text_in
-	correct_solution = solution	
-	text = text_in		
-
-func reset_text():
-	text = original_value
-
-func _can_drop_data(at_position, data):
-	return typeof(data) == TYPE_STRING
-	
-func _drop_data(at_position, data):
-	text = data
-	drag_finished.emit()
-
-"
-
-[node name="Char" type="Label"]
+[node name="Char" type="CenterContainer"]
+z_index = 2
 custom_minimum_size = Vector2(30, 0)
-script = SubResource("GDScript_r1bna")
+script = ExtResource("1_jhuv4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2

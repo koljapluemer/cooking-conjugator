@@ -45,10 +45,10 @@ func _ready() -> void:
 	generate_random_order()
 	generate_random_order()
 	generate_random_order()
+	generate_random_order()
 	move_order_to_workspace(orders_offered_list[0])
 	move_order_to_workspace(orders_offered_list[0])
 	move_order_to_workspace(orders_offered_list[0])
-	add_sushi_letter()
 
 func load_json_file(file_path: String):
 	if FileAccess.file_exists(file_path):
@@ -77,6 +77,7 @@ func add_sushi_letter(letter: String = "A") -> void:
 	sushi_letter.text = letter
 	sushi_letters.add_child(sushi_letter)
 
+
 func generate_random_order() -> void:
 	var random_exercise = exercises[randi() % exercises.size()]
 	var order_offered = ORDER_OFFERED.instantiate()
@@ -85,7 +86,6 @@ func generate_random_order() -> void:
 	orders_offered_list.append(order_offered)
 	
 	order_offered.connect("matched_with_fitting_verb", _on_order_matched_with_fitting_verb)
-
 	add_sushi_word(random_exercise.verb)
 	
 func _on_order_matched_with_fitting_verb(order):
@@ -93,6 +93,8 @@ func _on_order_matched_with_fitting_verb(order):
  
 func move_order_to_workspace(order) -> void:
 	# handle missing letters
+	for removed_letter in order.parent_exercise.removed_letters:
+		add_sushi_letter(removed_letter)
 	
 	orders_offered_list.erase(order)
 	orders_offered_ui.remove_child(order)

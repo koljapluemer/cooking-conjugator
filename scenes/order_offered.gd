@@ -15,4 +15,3 @@ func _can_drop_data(at_position, data):
 	
 func _drop_data(at_position, data):
 	matched_with_fitting_verb.emit(self)
-	print("dropped")

@@ -4,3 +4,6 @@
 - refactor 1 function
 - think about accessibility strategies
 - think about SEO strategies
+
+- do something about forms that are already correct...
+- the "might" form is just broken, how about ignore
