@@ -38,11 +38,11 @@ func _ready() -> void:
 		exercises.append(new_exercise)
 
 
-	generate_random_sushi_words(3)
+	# generate_random_sushi_words(3)
 	generate_random_order()
 	generate_random_order()
 	generate_random_order()
-	move_order_to_workspace(orders_offered_list[0])
+	# move_order_to_workspace(orders_offered_list[0])
 
 func load_json_file(file_path: String):
 	if FileAccess.file_exists(file_path):
@@ -53,16 +53,15 @@ func load_json_file(file_path: String):
 		print("File does not exist")
 
 
-func generate_random_sushi_words(nr_of_words: int) -> Array:
-	var random_verbs = []
+func generate_random_sushi_words(nr_of_words: int) -> void:
 	for i in range(nr_of_words):
 		var random_verb = verbs[randi() % verbs.size()]
-		random_verbs.append(random_verb)
-		# create sushi_word
-		var sushi_word = SUSHI_WORD.instantiate()
-		sushi_word.text = random_verb.eg_script	
-		sushi_words.add_child(sushi_word)
-	return random_verbs
+		add_sushi_word(random_verb)
+
+func add_sushi_word(verb: Verb) -> void:
+	var sushi_word = SUSHI_WORD.instantiate()
+	sushi_word.text = verb.eg_script
+	sushi_words.add_child(sushi_word)
 
 
 func generate_random_order() -> void:
@@ -71,6 +70,8 @@ func generate_random_order() -> void:
 	orders_offered_ui.add_child(order_offered)
 	order_offered.set_exercise(random_exercise)
 	orders_offered_list.append(order_offered)
+
+	add_sushi_word(random_exercise.verb)
 	
  
 func move_order_to_workspace(order) -> void:
