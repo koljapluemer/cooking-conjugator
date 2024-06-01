@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://5kiegpurwu7v"]
+[gd_scene load_steps=2 format=3 uid="uid://5kiegpurwu7v"]
+
+[ext_resource type="Script" path="res://scenes/sushi_word.gd" id="1_2c5bt"]
 
 [node name="SushiWord" type="Button"]
 text = " عا َز"
+script = ExtResource("1_2c5bt")
