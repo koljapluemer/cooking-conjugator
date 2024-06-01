@@ -4,16 +4,18 @@
 script/source = "extends Label
 
 var original_value
+var correct_solution
 signal drag_finished
 
-func set_values(text_in, slot_type):
+func set_values(text_in, slot_type, solution = null):
 	print(\"setting values\")
 	print(theme_type_variation)
 	if slot_type == SLOT_TYPE.FILL:
 		theme_type_variation = \"LabelBlue\"
 	if slot_type == SLOT_TYPE.REPLACE:
 		theme_type_variation = \"LabelYellow\"
-	original_value = text_in	
+	original_value = text_in
+	correct_solution = solution	
 	text = text_in		
 
 func reset_text():

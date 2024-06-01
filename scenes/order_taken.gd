@@ -21,11 +21,11 @@ func set_exercise(exercise: Exercise) -> void:
 	parent_exercise = exercise
 	en_ui.text = exercise.en + ", " + exercise.verb.eg_script
 	
-	var intro = exercise.eg_script_only_intro
-	print("intro", intro)
-	var intro_label = CHAR.instantiate()
-	intro_label.set_values(intro, SLOT_TYPE.IMMUTABLE)
-	chars_ui.add_child(intro_label)
+	if exercise.eg_script_only_intro.length() > 0:
+		var intro = exercise.eg_script_only_intro
+		var intro_label = CHAR.instantiate()
+		intro_label.set_values(intro, SLOT_TYPE.IMMUTABLE)
+		chars_ui.add_child(intro_label)
 	
 	for i in range(exercise.exercise_template.size()):
 		var index = exercise.exercise_template.size() - i - 1
@@ -33,11 +33,11 @@ func set_exercise(exercise: Exercise) -> void:
 		var char = CHAR.instantiate()	
 		var text_val = exercise.exercise_template[index][0]
 		if text_val == "_":
-			char.set_values("",  SLOT_TYPE.FILL)
+			char.set_values("",  SLOT_TYPE.FILL, exercise.eg_script_chars[i])
 		elif text_val == "X":
-			char.set_values(exercise.eg_script_chars[index], SLOT_TYPE.REPLACE)
+			char.set_values(exercise.exercise_initial[i][0], SLOT_TYPE.REPLACE, exercise.eg_script_chars[i])
 		else: 
-			char.set_values(text_val, SLOT_TYPE.IMMUTABLE)
+			char.set_values(exercise.exercise_template[index][0], SLOT_TYPE.IMMUTABLE)
 			
 		chars_ui.add_child(char)
 		chars.append(char)

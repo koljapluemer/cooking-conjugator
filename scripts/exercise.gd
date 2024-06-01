@@ -7,6 +7,7 @@ var eg_script_chars: Array
 var eg_script_only_verb: String
 var eg_script_only_intro: String
 var exercise_template: Array
+var exercise_initial: Array
 var removed_letters: Array
 var tense: String
 var verb: Verb
@@ -29,6 +30,7 @@ func set_values(json: Dictionary, parent_verb: Verb) -> void:
 	eg_script_only_verb = json["EG_only_verb"]
 	eg_script_only_intro = json["EG_only_intro"]
 	exercise_template = json["exercise_template"]
+	exercise_initial = json["exercise"]
 	removed_letters = json["removed_letters"]
 	tense = json["tense"]
 	verb = parent_verb
