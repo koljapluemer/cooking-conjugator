@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ii24hfhu375n"]
+
+[ext_resource type="Theme" uid="uid://cv5x5k0xj01xc" path="res://themes/FlatUI/kenneyUI-green.tres" id="1_3jbrg"]
+[ext_resource type="Script" path="res://scenes/order_offered.gd" id="2_fb5xq"]
+[ext_resource type="Texture2D" uid="uid://dbk767d1efuay" path="res://assets/woman.png" id="2_i2xg0"]
+
+[node name="OrderOffered" type="Panel"]
+theme = ExtResource("1_3jbrg")
+script = ExtResource("2_fb5xq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 40.0
+
+[node name="Spacer" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("2_i2xg0")
+expand_mode = 3
+
+[node name="Label" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_3jbrg")
+text = "you (f) are eating"

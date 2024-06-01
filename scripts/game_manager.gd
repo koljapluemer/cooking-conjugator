@@ -3,9 +3,13 @@ extends Control
 const EXERCISES_PATH = "res://data/exercises_4.json"
 var exercises = []
 var verbs = []
+var offered_orders = []
 
 const SUSHI_WORD = preload("res://scenes/sushi_word.tscn")
 @onready var sushi_words: HBoxContainer = $VBoxContainer/Belts/SushiWords
+
+const ORDER_OFFERED = preload("res://scenes/order_offered.tscn")
+@onready var orders_offered: VBoxContainer = $VBoxContainer/OrdersOffered
 
 func _ready() -> void:
 	var raw_exercise_list = load_json_file(EXERCISES_PATH)
@@ -26,7 +30,10 @@ func _ready() -> void:
 		var new_exercise = Exercise.new()
 		new_exercise.set_values(exercise, verb)
 		exercises.append(new_exercise)
+
+		
 	generate_random_sushi_words(3)
+	generate_random_order()
 
 func load_json_file(file_path: String):
 	if FileAccess.file_exists(file_path):
@@ -47,3 +54,12 @@ func generate_random_sushi_words(nr_of_words: int) -> Array:
 		sushi_word.text = random_verb.eg_script	
 		sushi_words.add_child(sushi_word)
 	return random_verbs
+
+
+func generate_random_order() -> void:
+	var random_exercise = exercises[randi() % exercises.size()]
+	var order_offered = ORDER_OFFERED.instantiate()
+	orders_offered.add_child(order_offered)
+	order_offered.set_exercise(random_exercise)
+	
+ 
