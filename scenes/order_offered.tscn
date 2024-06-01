@@ -17,7 +17,7 @@ layout_mode = 2
 texture = ExtResource("2_i2xg0")
 expand_mode = 3
 
-[node name="Label" type="Button" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
 theme = ExtResource("1_3jbrg")
 text = "you (f) are eating"

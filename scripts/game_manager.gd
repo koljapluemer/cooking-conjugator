@@ -61,6 +61,7 @@ func generate_random_sushi_words(nr_of_words: int) -> void:
 func add_sushi_word(verb: Verb) -> void:
 	var sushi_word = SUSHI_WORD.instantiate()
 	sushi_word.text = verb.eg_script
+	sushi_word.verb = verb
 	sushi_words.add_child(sushi_word)
 
 
@@ -70,9 +71,13 @@ func generate_random_order() -> void:
 	orders_offered_ui.add_child(order_offered)
 	order_offered.set_exercise(random_exercise)
 	orders_offered_list.append(order_offered)
+	
+	order_offered.connect("matched_with_fitting_verb", _on_order_matched_with_fitting_verb)
 
 	add_sushi_word(random_exercise.verb)
 	
+func _on_order_matched_with_fitting_verb(order):
+	move_order_to_workspace(order)
  
 func move_order_to_workspace(order) -> void:
 	orders_offered_list.erase(order)

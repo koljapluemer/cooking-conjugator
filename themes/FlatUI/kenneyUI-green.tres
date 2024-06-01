@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=34 format=3 uid="uid://cv5x5k0xj01xc"]
+[gd_resource type="Theme" load_steps=35 format=3 uid="uid://cv5x5k0xj01xc"]
 
 [ext_resource type="Texture2D" uid="uid://wwpewspvcc5a" path="res://themes/FlatUI/UIpack_vector.svg" id="1"]
 [ext_resource type="FontFile" uid="uid://7lkeouat8frt" path="res://themes/FlatUI/kenvector_future.ttf" id="2"]
@@ -81,6 +81,14 @@ region = Rect2(872, 564, 28, 42)
 [sub_resource type="StyleBoxTexture" id="17"]
 texture = ExtResource("1")
 region_rect = Rect2(840, 316, 192, 6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dwbd6"]
+texture = ExtResource("1")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+region_rect = Rect2(211, 120, 190, 49)
 
 [sub_resource type="StyleBoxEmpty" id="18"]
 
@@ -220,6 +228,8 @@ HSlider/icons/tick = null
 HSlider/styles/grabber_area = SubResource("17")
 HSlider/styles/grabber_area_highlight = SubResource("17")
 HSlider/styles/slider = SubResource("17")
+Label/colors/font_color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+Label/styles/normal = SubResource("StyleBoxTexture_dwbd6")
 LineEdit/colors/clear_button_color = Color(0.88, 0.88, 0.88, 1)
 LineEdit/colors/clear_button_color_pressed = Color(1, 1, 1, 1)
 LineEdit/colors/cursor_color = Color(0.34902, 0.34902, 0.34902, 1)
