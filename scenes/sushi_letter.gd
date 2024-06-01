@@ -1,23 +1,21 @@
 extends CenterContainer
 @onready var label: Label = $Label
+var is_dragging = false
 
 var movement_tween
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-	#movement_tween = create_tween()
-	# move to the right of the screen
-	#movement_tween.tween_property(self, "position:x", get_viewport_rect().size.x, 12)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	position.x += 50.0 * delta
-	pass
+func _physics_process(delta: float) -> void:
+	position.x += 20.0 * delta
 
 func _get_drag_data(at_position):
-	var preview = duplicate()
+	var preview = label.duplicate()
 	set_drag_preview(preview)
 	visible = false	
+	is_dragging = true
 	return label.text
 	
 func _notification(what: int) -> void:
