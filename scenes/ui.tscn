@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr7e2kx4w01vy"]
+[gd_scene load_steps=7 format=3 uid="uid://cr7e2kx4w01vy"]
 
 [ext_resource type="Theme" uid="uid://cv5x5k0xj01xc" path="res://themes/FlatUI/kenneyUI-green.tres" id="1_5gsd1"]
 [ext_resource type="Texture2D" uid="uid://dbk767d1efuay" path="res://assets/woman.png" id="2_04rxb"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_xg2ox"]
 [ext_resource type="Texture2D" uid="uid://mfkchl8myevb" path="res://assets/man-wearing-turban.png" id="3_ddkvx"]
 [ext_resource type="Script" path="res://scripts/draggable_slot.gd" id="4_4nmrv"]
 [ext_resource type="Script" path="res://scripts/draggable_item.gd" id="5_34g6n"]
@@ -14,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5gsd1")
+script = ExtResource("2_xg2ox")
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]

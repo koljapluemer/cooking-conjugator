@@ -1,6 +1,6 @@
 class_name DragItem extends Button
 
-#@export var BTN_LABEL: Control
+#@export var BTN_LABEL: Controlr
 #@export var SLOT_PANEL: Control
 
 var original_value
