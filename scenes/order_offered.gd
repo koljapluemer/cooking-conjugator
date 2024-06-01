@@ -10,8 +10,7 @@ func set_exercise(exercise: Exercise) -> void:
 	label.text = exercise.en
 	
 func _can_drop_data(at_position, data):
-	print("recieved drop offer")
-	return true
+	return data == parent_exercise.verb.eg_script
 	#return typeof(data) == TYPE_STRING
 	
 func _drop_data(at_position, data):
