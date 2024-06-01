@@ -148,6 +148,8 @@ region_rect = Rect2(1051, 317, 4, 100)
 [resource]
 default_font = SubResource("31")
 BoxContainer/constants/separation = 12
+BoxContainerButtonStyle/base_type = &"BoxContainer"
+BoxContainerButtonStyle/constants/separation = 0
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_color_disabled = Color(0.0392157, 0.0392157, 0.0392157, 0.615686)
 Button/colors/font_color_hover = Color(0.34902, 0.34902, 0.34902, 1)

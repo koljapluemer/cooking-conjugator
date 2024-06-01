@@ -11,7 +11,7 @@ func _init() -> void:
 func set_values(text_in,  slot_type):
 	print("setting values")
 	if slot_type == SLOT_TYPE.FILL:
-		modulate = Color.CADET_BLUE
+		modulate = Color.BEIGE
 	if slot_type == SLOT_TYPE.REPLACE:
 		modulate = Color.DARK_SLATE_GRAY
 	else:

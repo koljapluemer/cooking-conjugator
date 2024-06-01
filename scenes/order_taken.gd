@@ -1,7 +1,12 @@
 extends HBoxContainer
 
 var parent_exercise: Exercise
-@onready var label: Button = $Label
+
+@onready var en_ui: Label = $VBoxContainer/En
+
+@onready var chars_ui: HBoxContainer = $VBoxContainer/Chars
+const CHAR = preload("res://scenes/char.tscn")
+var chars = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,5 +19,9 @@ func _process(delta: float) -> void:
 
 func set_exercise(exercise: Exercise) -> void:
 	parent_exercise = exercise
-	label.text = exercise.en
-	
+	en_ui.text = exercise.en
+	for c in exercise.exercise_template:
+		var char = CHAR.instantiate()
+		chars_ui.add_child(char)
+		char.text = c[0]
+		chars.append(char)

@@ -4,25 +4,20 @@
 [ext_resource type="Script" path="res://scenes/order_offered.gd" id="2_fb5xq"]
 [ext_resource type="Texture2D" uid="uid://dbk767d1efuay" path="res://assets/woman.png" id="2_i2xg0"]
 
-[node name="OrderOffered" type="Panel"]
+[node name="OrderOffered" type="HBoxContainer"]
 theme = ExtResource("1_3jbrg")
 script = ExtResource("2_fb5xq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_right = 112.0
-offset_bottom = 40.0
-
-[node name="Spacer" type="Control" parent="HBoxContainer"]
+[node name="Spacer" type="Control" parent="."]
 layout_mode = 2
 
-[node name="Portrait" type="TextureRect" parent="HBoxContainer"]
+[node name="Portrait" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("2_i2xg0")
 expand_mode = 3
 
-[node name="Label" type="Button" parent="HBoxContainer"]
+[node name="Label" type="Button" parent="."]
 layout_mode = 2
 theme = ExtResource("1_3jbrg")
 text = "you (f) are eating"

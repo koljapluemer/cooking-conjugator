@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://44i0hovxvhgg"]
+
+[ext_resource type="Script" path="res://scripts/draggable_slot.gd" id="1_7nfoq"]
+
+[node name="Char" type="Button"]
+custom_minimum_size = Vector2(30, 0)
+script = ExtResource("1_7nfoq")
