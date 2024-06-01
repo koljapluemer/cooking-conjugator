@@ -16,6 +16,7 @@ layout_mode = 2
 [node name="En" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_syyc4")
+theme_type_variation = &"LabelMinimal"
 text = "1. SG, Past, مـِشي"
 
 [node name="Chars" type="HBoxContainer" parent="VBoxContainer"]
