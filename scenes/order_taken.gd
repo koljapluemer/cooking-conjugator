@@ -42,6 +42,8 @@ func set_exercise(exercise: Exercise) -> void:
 		chars_ui.add_child(char)
 		chars.append(char)
 		
+	
+		
 		
 		
 		

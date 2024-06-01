@@ -7,6 +7,9 @@ var verbs = []
 const SUSHI_WORD = preload("res://scenes/sushi_word.tscn")
 @onready var sushi_words: HBoxContainer = $VBoxContainer/Belts/SushiWords
 
+const SUSHI_LETTER = preload("res://scenes/sushi_letter.tscn")
+@onready var sushi_letters: HBoxContainer = $VBoxContainer/Belts/SushiLetters
+
 const ORDER_OFFERED = preload("res://scenes/order_offered.tscn")
 @onready var orders_offered_ui: VBoxContainer = $VBoxContainer/OrdersOffered
 var orders_offered_list = []
@@ -45,6 +48,7 @@ func _ready() -> void:
 	move_order_to_workspace(orders_offered_list[0])
 	move_order_to_workspace(orders_offered_list[0])
 	move_order_to_workspace(orders_offered_list[0])
+	add_sushi_letter()
 
 func load_json_file(file_path: String):
 	if FileAccess.file_exists(file_path):
@@ -60,12 +64,18 @@ func generate_random_sushi_words(nr_of_words: int) -> void:
 		var random_verb = verbs[randi() % verbs.size()]
 		add_sushi_word(random_verb)
 
+
 func add_sushi_word(verb: Verb) -> void:
 	var sushi_word = SUSHI_WORD.instantiate()
 	sushi_word.text = verb.eg_script
 	sushi_word.verb = verb
 	sushi_words.add_child(sushi_word)
 
+
+func add_sushi_letter(letter: String = "A") -> void:
+	var sushi_letter = SUSHI_LETTER.instantiate()
+	sushi_letter.text = letter
+	sushi_letters.add_child(sushi_letter)
 
 func generate_random_order() -> void:
 	var random_exercise = exercises[randi() % exercises.size()]
@@ -82,6 +92,8 @@ func _on_order_matched_with_fitting_verb(order):
 	move_order_to_workspace(order)
  
 func move_order_to_workspace(order) -> void:
+	# handle missing letters
+	
 	orders_offered_list.erase(order)
 	orders_offered_ui.remove_child(order)
 	var order_taken = ORDER_TAKEN.instantiate()
