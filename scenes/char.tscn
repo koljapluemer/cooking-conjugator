@@ -1,17 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://44i0hovxvhgg"]
 
 [sub_resource type="GDScript" id="GDScript_r1bna"]
-script/source = "class_name DragSlot extends Label
+script/source = "extends Label
 
-var original_value = \"X\"
-
+var original_value
 signal drag_finished
 
-func _init() -> void:
-	set_values(\"A\", SLOT_TYPE.FILL)
-	pass
-
-func set_values(text_in,  slot_type):
+func set_values(text_in, slot_type):
 	print(\"setting values\")
 	print(theme_type_variation)
 	if slot_type == SLOT_TYPE.FILL:
@@ -25,7 +20,6 @@ func reset_text():
 	text = original_value
 
 func _can_drop_data(at_position, data):
-	# check if data is string
 	return typeof(data) == TYPE_STRING
 	
 func _drop_data(at_position, data):

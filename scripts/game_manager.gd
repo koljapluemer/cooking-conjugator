@@ -42,7 +42,9 @@ func _ready() -> void:
 	generate_random_order()
 	generate_random_order()
 	generate_random_order()
-	# move_order_to_workspace(orders_offered_list[0])
+	move_order_to_workspace(orders_offered_list[0])
+	move_order_to_workspace(orders_offered_list[0])
+	move_order_to_workspace(orders_offered_list[0])
 
 func load_json_file(file_path: String):
 	if FileAccess.file_exists(file_path):
