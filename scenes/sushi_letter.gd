@@ -4,12 +4,14 @@ extends CenterContainer
 var movement_tween
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	movement_tween = create_tween()
+	pass
+	#movement_tween = create_tween()
 	# move to the right of the screen
-	movement_tween.tween_property(self, "position:x", get_viewport_rect().size.x, 12)
+	#movement_tween.tween_property(self, "position:x", get_viewport_rect().size.x, 12)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	position.x += 50.0 * delta
 	pass
 
 func _get_drag_data(at_position):

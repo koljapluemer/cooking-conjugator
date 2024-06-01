@@ -77,6 +77,8 @@ func add_sushi_word(verb: Verb) -> void:
 
 func add_sushi_letter(letter: String = "A") -> void:
 	var sushi_letter = SUSHI_LETTER.instantiate()
+	# move to the left by own width
+	sushi_letter.position.x = - 30
 	sushi_letters.add_child(sushi_letter)
 	sushi_letter.label.text = letter
 
@@ -121,5 +123,4 @@ func _on_order_solved(order) -> void:
 
 
 func _on_sushi_words_timer_timeout() -> void:
-	print("hey a second is over")
 	add_random_sushi_letter_from_pool()	
