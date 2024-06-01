@@ -24,5 +24,6 @@ func _can_drop_data(at_position, data):
 	
 func _drop_data(at_position, data):
 	label.text = data
+	label.theme_type_variation = ""
 	drag_finished.emit()
 

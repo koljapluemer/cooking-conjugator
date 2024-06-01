@@ -59,7 +59,7 @@ func add_sushi_word(verb: Verb) -> void:
 	sushi_word.text = verb.eg_script
 	sushi_word.verb = verb
 	sushi_words.add_child(sushi_word)
-	sushi_word.position.x -= sushi_word.size.x
+	sushi_word.position.x -= sushi_word.size.x 
 
 func add_sushi_letter(letter: String = "A") -> void:
 	var sushi_letter = SUSHI_LETTER.instantiate()
