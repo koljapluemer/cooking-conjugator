@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://5kiegpurwu7v"]
+
+[node name="SushiWord" type="Button"]
+text = " عا َز"

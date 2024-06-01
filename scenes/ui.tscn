@@ -161,19 +161,19 @@ size_flags_vertical = 3
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer/Belts"]
 layout_mode = 2
 
-[node name="Letters" type="HBoxContainer" parent="VBoxContainer/Belts"]
+[node name="SushiLetters" type="HBoxContainer" parent="VBoxContainer/Belts"]
 layout_mode = 2
 
-[node name="l4" type="Button" parent="VBoxContainer/Belts/Letters"]
+[node name="l4" type="Button" parent="VBoxContainer/Belts/SushiLetters"]
 layout_mode = 2
 text = "ي"
 script = ExtResource("5_34g6n")
 
-[node name="l2" type="Button" parent="VBoxContainer/Belts/Letters"]
+[node name="l2" type="Button" parent="VBoxContainer/Belts/SushiLetters"]
 layout_mode = 2
 text = "ت"
 
-[node name="l3" type="Button" parent="VBoxContainer/Belts/Letters"]
+[node name="l3" type="Button" parent="VBoxContainer/Belts/SushiLetters"]
 layout_mode = 2
 text = "ي"
 
@@ -181,20 +181,8 @@ text = "ي"
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
 
-[node name="Words" type="HBoxContainer" parent="VBoxContainer/Belts"]
+[node name="SushiWords" type="HBoxContainer" parent="VBoxContainer/Belts"]
 layout_mode = 2
-
-[node name="l4" type="Button" parent="VBoxContainer/Belts/Words"]
-layout_mode = 2
-text = " عا َز"
-
-[node name="l2" type="Button" parent="VBoxContainer/Belts/Words"]
-layout_mode = 2
-text = " عا َش"
-
-[node name="l3" type="Button" parent="VBoxContainer/Belts/Words"]
-layout_mode = 2
-text = " سا َعـِد"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/Belts"]
 layout_mode = 2

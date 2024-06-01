@@ -4,6 +4,9 @@ const EXERCISES_PATH = "res://data/exercises_4.json"
 var exercises = []
 var verbs = []
 
+const SUSHI_WORD = preload("res://scenes/sushi_word.tscn")
+@onready var sushi_words: HBoxContainer = $VBoxContainer/Belts/SushiWords
+
 func _ready() -> void:
 	var raw_exercise_list = load_json_file(EXERCISES_PATH)
 	# loop exercises and create Exercise objects
@@ -23,7 +26,7 @@ func _ready() -> void:
 		var new_exercise = Exercise.new()
 		new_exercise.set_values(exercise, verb)
 		exercises.append(new_exercise)
-	print(exercises)
+	generate_random_sushi_words(3)
 
 func load_json_file(file_path: String):
 	if FileAccess.file_exists(file_path):
@@ -32,3 +35,15 @@ func load_json_file(file_path: String):
 		return parsedResult
 	else:
 		print("File does not exist")
+
+
+func generate_random_sushi_words(nr_of_words: int) -> Array:
+	var random_verbs = []
+	for i in range(nr_of_words):
+		var random_verb = verbs[randi() % verbs.size()]
+		random_verbs.append(random_verb)
+		# create sushi_word
+		var sushi_word = SUSHI_WORD.instantiate()
+		sushi_word.text = random_verb.eg_script	
+		sushi_words.add_child(sushi_word)
+	return random_verbs
