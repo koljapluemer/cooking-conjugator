@@ -1,6 +1,6 @@
 extends Control
 
-const EXERCISES_PATH = "res://data/exercises_5.json"
+const EXERCISES_PATH = "res://data/exercises_min.json"
 var exercises = []
 var verbs = []
 

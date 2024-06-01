@@ -42,7 +42,7 @@ func set_exercise(exercise: Exercise) -> void:
 		if text_val == "_":
 			char.set_values("",  SLOT_TYPE.FILL, exercise.eg_script_chars[i])
 		elif text_val == "X":
-			char.set_values(exercise.exercise_initial[i][0], SLOT_TYPE.REPLACE, exercise.eg_script_chars[i])
+			char.set_values(exercise.exercise_initial[index][0], SLOT_TYPE.REPLACE, exercise.eg_script_chars[i])
 		else: 
 			char.set_values(exercise.exercise_template[index][0], SLOT_TYPE.IMMUTABLE)
 		
