@@ -102,3 +102,10 @@ func move_order_to_workspace(order) -> void:
 	workspace_ui.add_child(order_taken)
 	order_taken.set_exercise(order.parent_exercise)
 	order.queue_free()
+	order_taken.connect("order_solved", _on_order_solved)
+
+
+func _on_order_solved(order) -> void:
+	orders_taken_list.erase(order)
+	order.queue_free()
+	generate_random_order()

@@ -2,6 +2,8 @@ extends HBoxContainer
 
 var parent_exercise: Exercise
 
+signal order_solved(order)
+
 @onready var prompt: Label = $VBoxContainer/HBoxContainer/Prompt
 @onready var verb: Label = $VBoxContainer/HBoxContainer/Verb
 @onready var result: Label = $VBoxContainer/ResultBox/Result
@@ -52,7 +54,7 @@ func set_exercise(exercise: Exercise) -> void:
 func _on_letter_drag_finished():
 	calculate_resulting_word()	
 	if resulting_word == parent_exercise.eg_script_only_verb:
-		print("you win")
+		order_solved.emit(self)
 	
 func calculate_resulting_word():
 	resulting_word = ""
