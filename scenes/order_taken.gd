@@ -38,12 +38,12 @@ func set_exercise(exercise: Exercise) -> void:
 		var index = exercise.exercise_template.size() - i - 1
 		var char = CHAR.instantiate()	
 		chars_ui.add_child(char)		
-		var text_val = exercise.exercise_template[index][0]
-		if text_val == "_":
-			char.set_values("",  SLOT_TYPE.FILL, exercise.eg_script_chars[i])
-		elif text_val == "X":
+		var template = exercise.exercise_template[index][0]
+		if template == "_":
+			char.set_values(exercise.exercise_initial[index][0],  SLOT_TYPE.FILL, exercise.eg_script_chars[i])
+		elif template == "X":
 			char.set_values(exercise.exercise_initial[index][0], SLOT_TYPE.REPLACE, exercise.eg_script_chars[i])
-		else: 
+		elif template == "O":
 			char.set_values(exercise.exercise_template[index][0], SLOT_TYPE.IMMUTABLE)
 		
 		char.connect("drag_finished", _on_letter_drag_finished)

@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scenes/char.gd" id="1_jhuv4"]
 
 [node name="Char" type="CenterContainer"]
-z_index = 2
 custom_minimum_size = Vector2(30, 0)
 script = ExtResource("1_jhuv4")
 
