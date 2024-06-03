@@ -1,5 +1,8 @@
 extends Control
 
+const CONFETTI = preload("res://scenes/confetti.tscn")
+@onready var node_layer: Node = $NodeLayer
+
 const EXERCISES_PATH = "res://data/final_exercises.json"
 var exercises = []
 var verbs = []
@@ -115,6 +118,10 @@ func move_order_to_workspace(order) -> void:
 
 
 func _on_order_solved(order) -> void:
+	# generate confetti
+	# var confetti = CONFETTI.instantiate()
+	# node_layer.add_child(confetti)
+	#confetti.position = order.position
 	orders_taken_list.erase(order)
 	for letter in order.parent_exercise.removed_letters:
 		letter_pool.erase(letter)

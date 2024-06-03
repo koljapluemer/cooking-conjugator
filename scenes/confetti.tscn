@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://3wwp4gkgmdeg"]
+
+[sub_resource type="Curve" id="Curve_tcpb6"]
+_data = [Vector2(0, 0.208791), 0.0, 0.0, 0, 0, Vector2(0.994382, 0.747253), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="confetti" type="CPUParticles2D"]
+position = Vector2(356, 196)
+emitting = false
+amount = 16
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.6
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 120.0
+initial_velocity_max = 170.0
+angular_velocity_min = 260.0
+angular_velocity_max = 260.0
+linear_accel_min = 10.0
+linear_accel_max = 10.0
+scale_amount_min = 4.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_tcpb6")
+color = Color(0.427451, 0.807843, 0.698039, 1)

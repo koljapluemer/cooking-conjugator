@@ -5,7 +5,7 @@
 - think about accessibility strategies
 - think about SEO strategies
 
-- do something about forms that are already correct...
-- the "might" form is just broken, how about ignore
-- "you (m) say" also broken
-- as is "i am loving"
+- delete sushi at some point (or move it back to start)
+
+- "I(m) am wanting is broken"
+- so is "we might become" but i think its broken chars

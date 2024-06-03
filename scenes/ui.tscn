@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr7e2kx4w01vy"]
+[gd_scene load_steps=4 format=3 uid="uid://cr7e2kx4w01vy"]
 
 [ext_resource type="Theme" uid="uid://cv5x5k0xj01xc" path="res://themes/FlatUI/kenneyUI-green.tres" id="1_5gsd1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_xg2ox"]
+[ext_resource type="PackedScene" uid="uid://3wwp4gkgmdeg" path="res://scenes/confetti.tscn" id="3_1kykv"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -69,6 +70,11 @@ autostart = true
 [node name="OrderTimer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="NodeLayer" type="Node" parent="."]
+
+[node name="confetti" parent="NodeLayer" instance=ExtResource("3_1kykv")]
+position = Vector2(333, 196)
 
 [connection signal="timeout" from="SushiLetterTimer" to="." method="_on_sushi_letter_timer_timeout"]
 [connection signal="timeout" from="SushiWordsTimer" to="." method="_on_sushi_words_timer_timeout"]
