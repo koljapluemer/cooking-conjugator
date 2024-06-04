@@ -3,7 +3,7 @@ extends Control
 const CONFETTI = preload("res://scenes/confetti.tscn")
 @onready var node_layer: Node = $NodeLayer
 
-const EXERCISES_PATH = "res://data/final_exercises.json"
+const EXERCISES_PATH = "res://data/ex.json"
 var exercises = []
 var verbs = []
 
@@ -30,7 +30,7 @@ func _ready() -> void:
 	var raw_exercise_list = load_json_file(EXERCISES_PATH)
 	# loop exercises and create Exercise objects
 	for exercise in raw_exercise_list:
-		# check if Verb object exist!!!!!!!!!!!, otherwise create based on
+		# check if Verb object exist, otherwise create based on
 		# verb_EN and verb_EG_script
 		
 		var verb: Verb

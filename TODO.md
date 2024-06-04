@@ -7,5 +7,7 @@
 
 - delete sushi at some point (or move it back to start)
 
-- "I(m) am wanting is broken"
-- so is "we might become" but i think its broken chars
+- fix:
+    - "I(m) am wanting is broken"
+    - so is "we might become" but i think its broken chars
+    - "you(f) be"

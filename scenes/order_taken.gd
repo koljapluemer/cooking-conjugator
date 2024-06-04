@@ -40,11 +40,12 @@ func set_exercise(exercise: Exercise) -> void:
 		chars_ui.add_child(char)		
 		var template = exercise.exercise_template[index][0]
 		if template == "_":
-			char.set_values(exercise.exercise_initial[index][0],  SLOT_TYPE.FILL, exercise.eg_script_chars[i])
+			# see that the solution is in the same [[], []] list going in here and use that for solution
+			char.set_values(exercise.exercise_initial[index][0],  SLOT_TYPE.FILL, exercise.exercise_solution[index][0])
 		elif template == "X":
-			char.set_values(exercise.exercise_initial[index][0], SLOT_TYPE.REPLACE, exercise.eg_script_chars[i])
+			char.set_values(exercise.exercise_initial[index][0], SLOT_TYPE.REPLACE, exercise.exercise_solution[index][0])
 		elif template == "O":
-			char.set_values(exercise.exercise_template[index][0], SLOT_TYPE.IMMUTABLE)
+			char.set_values(exercise.exercise_initial[index][0], SLOT_TYPE.IMMUTABLE, exercise.exercise_solution[index][0])
 		
 		char.connect("drag_finished", _on_letter_drag_finished)
 		chars.append(char)
