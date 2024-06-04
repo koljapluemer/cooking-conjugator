@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cxqavwrhusk8d"]
+
+[node name="KillTimer" type="Timer"]
+wait_time = 0.5
+one_shot = true
+autostart = true

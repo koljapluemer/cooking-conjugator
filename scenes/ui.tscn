@@ -73,8 +73,12 @@ autostart = true
 
 [node name="NodeLayer" type="Node" parent="."]
 
-[node name="confetti" parent="NodeLayer" instance=ExtResource("3_1kykv")]
-position = Vector2(333, 196)
+[node name="Confetti" parent="NodeLayer" instance=ExtResource("3_1kykv")]
+unique_name_in_owner = true
+position = Vector2(198, 368)
+amount = 128
+gravity = Vector2(0, 50)
+color = Color(0.184314, 0.611765, 0.905882, 1)
 
 [connection signal="timeout" from="SushiLetterTimer" to="." method="_on_sushi_letter_timer_timeout"]
 [connection signal="timeout" from="SushiWordsTimer" to="." method="_on_sushi_words_timer_timeout"]

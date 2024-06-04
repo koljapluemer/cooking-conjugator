@@ -5,6 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://mfkchl8myevb" path="res://assets/man-wearing-turban.png" id="3_35jxf"]
 
 [node name="OrderTaken" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -31.0
+offset_right = 187.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_n5kfd")
 
 [node name="Spacer" type="Control" parent="."]

@@ -1,9 +1,9 @@
 extends Control
 
-const CONFETTI = preload("res://scenes/confetti.tscn")
-@onready var node_layer: Node = $NodeLayer
+@onready var confetti: CPUParticles2D = %Confetti
 
-const EXERCISES_PATH = "res://data/ex.json"
+const KILL_TIMER = preload("res://scenes/kill_timer.tscn")
+const EXERCISES_PATH = "res://data/ex-5.json"
 var exercises = []
 var verbs = []
 
@@ -11,7 +11,6 @@ const SUSHI_WORD = preload("res://scenes/sushi_word.tscn")
 @onready var sushi_words: Node2D = $VBoxContainer/Belts/SushiWords
 
 const SUSHI_LETTER = preload("res://scenes/sushi_letter.tscn")
-#@onready var sushi_letters: HBoxContainer = $VBoxContainer/Belts/SushiLetters
 @onready var sushi_letters: Node2D = $VBoxContainer/Belts/SushiLetters
 
 const ORDER_OFFERED = preload("res://scenes/order_offered.tscn")
@@ -34,12 +33,12 @@ func _ready() -> void:
 		# verb_EN and verb_EG_script
 		
 		var verb: Verb
-		# if no verb with en == exercise["verb_EN"] in verbs"
-		if not verbs.has(exercise["verb_EN"]):
-			verb = Verb.new(exercise["verb_EN"], exercise["verb_EG_script"])
+		# if no verb with en == exercise["base_form"] in verbs"
+		if not verbs.has(exercise["base_form"]):
+			verb = Verb.new(exercise["base_form"])
 			verbs.append(verb)
 		else:
-			verb = verbs[exercise["verb_EN"]]
+			verb = verbs[exercise["base_form"]]
 
 
 		var new_exercise = Exercise.new()
@@ -101,8 +100,8 @@ func _on_order_matched_with_fitting_verb(order):
  
 func move_order_to_workspace(order) -> void:
 	# handle missing letters
-	for removed_letter in order.parent_exercise.removed_letters:
-		letter_pool.append(removed_letter)
+	for letter in order.parent_exercise.exercise_letters:
+		letter_pool.append(letter)
 	
 	verb_pool.erase(order.parent_exercise.verb)
 	
@@ -118,15 +117,24 @@ func move_order_to_workspace(order) -> void:
 
 
 func _on_order_solved(order) -> void:
-	# generate confetti
-	# var confetti = CONFETTI.instantiate()
-	# node_layer.add_child(confetti)
-	#confetti.position = order.position
+	confetti.global_position.x = order.global_position.x + order.size.x / 2
+	confetti.global_position.y = order.global_position.y + order.size.y / 2
+	confetti.emitting = true
+
+	# start KILL_TIMER and on timeout delete the order etc
+	var kill_timer = KILL_TIMER.instantiate()
+	var kill_timer_callable = Callable(self, "remove_order").bind(order)
+	kill_timer.timeout.connect(kill_timer_callable)
+	add_child(kill_timer)
+	
+	generate_random_order()
+
+func remove_order(order) -> void:
+	print('kil ltimer')
 	orders_taken_list.erase(order)
-	for letter in order.parent_exercise.removed_letters:
+	for letter in order.parent_exercise.exercise_letters:
 		letter_pool.erase(letter)
 	order.queue_free()
-	generate_random_order()
 
 
 func _on_sushi_words_timer_timeout() -> void:
