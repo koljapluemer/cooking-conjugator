@@ -21,6 +21,7 @@ const ORDER_TAKEN = preload("res://scenes/order_taken.tscn")
 @onready var workspace_ui: VBoxContainer = $VBoxContainer/Workspace
 var orders_taken_list = []
 var order_finished_list = []
+var nr_of_orders_on_screen = 0
 
 var letter_pool = []
 var verb_pool = []
@@ -82,7 +83,7 @@ func add_random_sushi_word_from_pool() -> void:
 		add_sushi_word(random_verb)
 
 func fill_up_orders():
-	if orders_offered_list.size() + orders_taken_list.size() < 3:
+	if nr_of_orders_on_screen < 4:
 		generate_random_order()
 
 func generate_random_order() -> void:
@@ -91,6 +92,7 @@ func generate_random_order() -> void:
 	orders_offered_ui.add_child(order_offered)
 	order_offered.set_exercise(random_exercise)
 	orders_offered_list.append(order_offered)
+	nr_of_orders_on_screen += 1
 	
 	order_offered.connect("matched_with_fitting_verb", _on_order_matched_with_fitting_verb)
 	verb_pool.append(random_exercise.verb)
@@ -127,13 +129,13 @@ func _on_order_solved(order) -> void:
 	kill_timer.timeout.connect(kill_timer_callable)
 	add_child(kill_timer)
 	
-	#generate_random_order()
 
 func remove_order(order) -> void:
 	orders_taken_list.erase(order)
 	for letter in order.parent_exercise.exercise_letters:
 		letter_pool.erase(letter)
 	order.queue_free()
+	nr_of_orders_on_screen -= 1
 
 
 func _on_sushi_words_timer_timeout() -> void:
