@@ -3,7 +3,7 @@ extends Control
 @onready var confetti: CPUParticles2D = %Confetti
 
 const KILL_TIMER = preload("res://scenes/kill_timer.tscn")
-const EXERCISES_PATH = "res://data/ex-5.json"
+const EXERCISES_PATH = "res://data/ex-0.json"
 var exercises = []
 var verbs = []
 
@@ -127,10 +127,9 @@ func _on_order_solved(order) -> void:
 	kill_timer.timeout.connect(kill_timer_callable)
 	add_child(kill_timer)
 	
-	generate_random_order()
+	#generate_random_order()
 
 func remove_order(order) -> void:
-	print('kil ltimer')
 	orders_taken_list.erase(order)
 	for letter in order.parent_exercise.exercise_letters:
 		letter_pool.erase(letter)

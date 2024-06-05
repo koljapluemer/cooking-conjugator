@@ -24,3 +24,9 @@
 	- yes, core data problem: the short vowels (often? always?) come with added spaces, which are there the whole time...
 
 - todo: fix verb forms that are automatically correct
+
+
+- new approach:
+	1. standardize the into, have a list. i know what it should be for every single form.
+	2. see if the intro cannot be clearly detected. In that case, throw an alert and skip the form. It's fucked.
+	3. if we *can* detect the intro, simply rip it out of the string and MERGE the fucking rest, it *must* be one verb
