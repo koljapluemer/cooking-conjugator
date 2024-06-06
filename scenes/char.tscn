@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://44i0hovxvhgg"]
+[gd_scene load_steps=3 format=3 uid="uid://44i0hovxvhgg"]
 
 [ext_resource type="Script" path="res://scenes/char.gd" id="1_jhuv4"]
+[ext_resource type="FontFile" uid="uid://d4nbyt043typm" path="res://assets/Tajawal-Medium.ttf" id="2_inhru"]
 
 [node name="Char" type="CenterContainer"]
 custom_minimum_size = Vector2(30, 0)
@@ -8,3 +9,4 @@ script = ExtResource("1_jhuv4")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_inhru")
