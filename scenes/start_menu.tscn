@@ -40,4 +40,5 @@ text = "Tutorial"
 layout_mode = 2
 text = "Start Game"
 
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_button_pressed"]
