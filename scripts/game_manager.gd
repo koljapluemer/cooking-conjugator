@@ -1,5 +1,7 @@
 extends Control
 
+@export var is_tutorial:bool = false 
+
 @onready var confetti: CPUParticles2D = %Confetti
 
 const KILL_TIMER = preload("res://scenes/kill_timer.tscn")
