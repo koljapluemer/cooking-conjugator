@@ -85,7 +85,7 @@ func add_random_sushi_word_from_pool() -> void:
 		add_sushi_word(random_verb)
 
 func fill_up_orders():
-	if nr_of_orders_on_screen < 4:
+	if nr_of_orders_on_screen < 4 and not is_tutorial or nr_of_orders_on_screen < 1 and is_tutorial:
 		generate_random_order()
 
 func generate_random_order() -> void:
