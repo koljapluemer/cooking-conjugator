@@ -45,10 +45,17 @@ theme_override_constants/margin_bottom = 5
 [node name="Instructions" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/Instructions"]
+[node name="InstructionLabel1" type="Label" parent="VBoxContainer/MarginContainer/Instructions"]
 layout_mode = 2
 theme_type_variation = &"LabelBlue"
 text = "1. Drag the base form of the verb onto the customer order"
+autowrap_mode = 2
+
+[node name="InstructionLabel2" type="Label" parent="VBoxContainer/MarginContainer/Instructions"]
+visible = false
+layout_mode = 2
+theme_type_variation = &"LabelBlue"
+text = "2. Drag correct letters onto the gaps to complete the verb form"
 autowrap_mode = 2
 
 [node name="OrdersOffered" type="VBoxContainer" parent="VBoxContainer"]

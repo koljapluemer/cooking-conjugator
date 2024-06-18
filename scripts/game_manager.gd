@@ -1,5 +1,9 @@
 extends Control
 
+const UI = preload("res://scenes/ui.tscn")
+
+@onready var instruction_label_1: Label = $VBoxContainer/MarginContainer/Instructions/InstructionLabel1
+@onready var instruction_label_2: Label = $VBoxContainer/MarginContainer/Instructions/InstructionLabel2
 @export var is_tutorial:bool = false 
 
 @onready var confetti: CPUParticles2D = %Confetti
@@ -117,6 +121,10 @@ func move_order_to_workspace(order) -> void:
 	order_taken.set_exercise(order.parent_exercise)
 	order.queue_free()
 	order_taken.connect("order_solved", _on_order_solved)
+	
+	if is_tutorial:
+		instruction_label_1.visible = false
+		instruction_label_2.visible = true
 
 
 
@@ -138,6 +146,9 @@ func remove_order(order) -> void:
 		letter_pool.erase(letter)
 	order.queue_free()
 	nr_of_orders_on_screen -= 1
+	
+	if is_tutorial:
+		get_tree().change_scene_to_packed(UI)
 
 
 func _on_sushi_words_timer_timeout() -> void:
