@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr7e2kx4w01vy"]
+[gd_scene load_steps=4 format=3 uid="uid://bnu8de5ropsa4"]
 
-[ext_resource type="Theme" uid="uid://cv5x5k0xj01xc" path="res://themes/FlatUI/kenneyUI-green.tres" id="1_5gsd1"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_xg2ox"]
-[ext_resource type="PackedScene" uid="uid://3wwp4gkgmdeg" path="res://scenes/confetti.tscn" id="3_1kykv"]
+[ext_resource type="Theme" uid="uid://cv5x5k0xj01xc" path="res://themes/FlatUI/kenneyUI-green.tres" id="1_otu15"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_23dm7"]
+[ext_resource type="PackedScene" uid="uid://3wwp4gkgmdeg" path="res://scenes/confetti.tscn" id="3_trjjr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,8 +11,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_5gsd1")
-script = ExtResource("2_xg2ox")
+theme = ExtResource("1_otu15")
+script = ExtResource("2_23dm7")
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -33,6 +33,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
 [node name="OrdersOffered" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -73,7 +80,7 @@ autostart = true
 
 [node name="NodeLayer" type="Node" parent="."]
 
-[node name="Confetti" parent="NodeLayer" instance=ExtResource("3_1kykv")]
+[node name="Confetti" parent="NodeLayer" instance=ExtResource("3_trjjr")]
 unique_name_in_owner = true
 position = Vector2(198, 368)
 amount = 128

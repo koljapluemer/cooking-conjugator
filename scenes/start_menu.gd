@@ -1,5 +1,5 @@
 extends Control
-const UI = preload("res://scenes/ui.tscn")
+const UI = preload("res://scenes/main_ui.tscn")
 const TUTORIAL = preload("res://scenes/tutorial_ui.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

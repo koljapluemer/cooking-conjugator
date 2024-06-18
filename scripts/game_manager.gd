@@ -1,6 +1,6 @@
 extends Control
 
-const UI = preload("res://scenes/ui.tscn")
+const UI = preload("res://scenes/main_ui.tscn")
 
 @onready var instruction_label_1: Label = $VBoxContainer/MarginContainer/Instructions/InstructionLabel1
 @onready var instruction_label_2: Label = $VBoxContainer/MarginContainer/Instructions/InstructionLabel2
