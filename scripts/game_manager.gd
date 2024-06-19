@@ -32,6 +32,13 @@ var nr_of_orders_on_screen = 0
 var letter_pool = []
 var verb_pool = []
 
+const ALPHABET = [
+	'ا', 'ب', 'ت', 'ث', 'ج', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 
+	'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 
+	'ك', 'ل', 'م', 'ن', 'ه', 'و', 'ي'
+]
+
+
 func _ready() -> void:
 	var raw_exercise_list = load_json_file(EXERCISES_PATH)
 	# loop exercises and create Exercise objects
@@ -75,7 +82,13 @@ func add_sushi_letter(letter: String = "A") -> void:
 	# move to the left by own width
 	sushi_letters.add_child(sushi_letter)
 	sushi_letter.position.x -= sushi_letter.size.x	
-	sushi_letter.label.text = letter
+	# with 25% chance, use a random letter from ALPHABET instead
+
+	if randf() < 0.25 and not is_tutorial:
+		sushi_letter.label.text = ALPHABET[randi() % ALPHABET.size()]
+	else:
+		sushi_letter.label.text = letter
+
 
 
 func add_random_sushi_letter_from_pool() -> void:
