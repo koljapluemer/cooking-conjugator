@@ -75,13 +75,13 @@ func add_sushi_word(verb: Verb) -> void:
 	sushi_word.text = verb.eg_script
 	sushi_word.verb = verb
 	sushi_words.add_child(sushi_word)
-	sushi_word.position.x -= sushi_word.size.x 
+	sushi_word.position.x -= sushi_word.size.x / 2
 
 func add_sushi_letter(letter: String = "A") -> void:
 	var sushi_letter = SUSHI_LETTER.instantiate()
 	# move to the left by own width
 	sushi_letters.add_child(sushi_letter)
-	sushi_letter.position.x -= sushi_letter.size.x	
+	sushi_letter.position.x -= sushi_letter.size.x	/ 2
 	# with 25% chance, use a random letter from ALPHABET instead
 
 	if randf() < 0.25 and not is_tutorial:
