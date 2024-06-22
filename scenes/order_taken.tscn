@@ -63,6 +63,7 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("1_syyc4")
 theme_type_variation = &"LabelMinimal"
+theme_override_fonts/font = ExtResource("4_et3p8")
 text = "1. SG, Past, مـِشي"
 
 [node name="=" type="Label" parent="VBoxContainer/ResultBox"]
