@@ -1,5 +1,23 @@
 extends HBoxContainer
 
+const BLOND_HAIRED_WOMAN = preload("res://assets/people/blond-haired-woman.png")
+const BOY = preload("res://assets/people/boy.png")
+const GIRL = preload("res://assets/people/girl.png")
+const MAN_FACEPALMING = preload("res://assets/people/man-facepalming.png")
+const MAN_FROWNING = preload("res://assets/people/man-frowning.png")
+const MAN_WEARING_TURBAN = preload("res://assets/people/man-wearing-turban.png")
+const MAN_IN_TUXEDO = preload("res://assets/people/man_in_tuxedo.png")
+const MAN_WITH_GUA_PI_MAO = preload("res://assets/people/man_with_gua_pi_mao.png")
+const MRS_CLAUS = preload("res://assets/people/mrs_claus.png")
+const OLDER_WOMAN = preload("res://assets/people/older_woman.png")
+const PRINCE = preload("res://assets/people/prince.png")
+const PRINCESS = preload("res://assets/people/princess.png")
+const WOMAN_POUTING = preload("res://assets/people/woman-pouting.png")
+const WOMAN_WEARING_TURBAN = preload("res://assets/people/woman-wearing-turban.png")
+const WOMAN = preload("res://assets/people/woman.png")
+
+@onready var portrait: TextureRect = %Portrait
+
 var parent_exercise: Exercise
 
 signal order_solved(order)
@@ -23,10 +41,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_exercise(exercise: Exercise) -> void:
+func set_exercise(exercise: Exercise, person) -> void:
 	parent_exercise = exercise
 	verb.text = exercise.verb.eg_script
 	prompt.text = exercise.prompt
+
+	# set person
+	portrait.texture = person
 	
 	if exercise.intro.length() > 0:
 		var intro = exercise.intro

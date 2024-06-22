@@ -23,6 +23,7 @@ script = ExtResource("1_n5kfd")
 layout_mode = 2
 
 [node name="Portrait" type="TextureRect" parent="."]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 texture = ExtResource("3_35jxf")

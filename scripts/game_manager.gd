@@ -124,16 +124,18 @@ func move_order_to_workspace(order) -> void:
 	for letter in order.parent_exercise.exercise_letters:
 		letter_pool.append(letter)
 	
+	var order_taken = ORDER_TAKEN.instantiate()	
+	workspace_ui.add_child(order_taken)	
+	order_taken.set_exercise(order.parent_exercise, order.person)
+	order_taken.connect("order_solved", _on_order_solved)
+	orders_taken_list.append(order_taken)	
+	
+	
 	verb_pool.erase(order.parent_exercise.verb)
 	
 	orders_offered_list.erase(order)
-	orders_taken_list.append(order)
 	orders_offered_ui.remove_child(order)
-	var order_taken = ORDER_TAKEN.instantiate()
-	workspace_ui.add_child(order_taken)
-	order_taken.set_exercise(order.parent_exercise)
 	order.queue_free()
-	order_taken.connect("order_solved", _on_order_solved)
 	
 	if is_tutorial:
 		instruction_label_1.visible = false
