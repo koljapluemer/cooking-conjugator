@@ -48,5 +48,20 @@ text = "Tutorial"
 layout_mode = 2
 text = "Start Game"
 
+[node name="Node" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]
+Egyptian verb forms based on the amazing [url]www.lisaanmasry.org[/url] (Copyright © 2007-2020 Mike Green, non-commercial use)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_button_pressed"]
