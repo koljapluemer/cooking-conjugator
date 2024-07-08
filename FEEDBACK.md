@@ -1,0 +1,3 @@
+- Schrift nervig zu lesen, auch Latin Script
+- annoying wenn man die Verben nicht kennt
+- aufm Handy zu klein
